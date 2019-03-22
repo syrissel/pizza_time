@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  path: MyString
+  pizza: one
+  deal: one
+
+two:
+  path: MyString
+  pizza: two
+  deal: two

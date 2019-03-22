@@ -5,5 +5,7 @@ class Deal < ApplicationRecord
   has_many :pizza_deals
   has_many :pizzas, :through => :pizza_deals
 
+  #belongs_to :images
+
   accepts_nested_attributes_for :pizzas
 end
