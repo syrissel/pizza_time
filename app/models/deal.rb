@@ -4,4 +4,6 @@ class Deal < ApplicationRecord
 
   has_many :pizza_deals
   has_many :pizzas, :through => :pizza_deals
+
+  accepts_nested_attributes_for :pizzas
 end

@@ -1,4 +1,4 @@
-ActiveAdmin.register Deal do
+ActiveAdmin.register PizzaDeal do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -12,18 +12,4 @@ ActiveAdmin.register Deal do
 #   permitted
 # end
 
-permit_params :name,
-              :price,
-              pizza_ids: []
-
-form do |f|
-  f.inputs 'Deal Details' do
-    f.input :name
-    f.input :price
-  end
-  f.inputs 'Pizzas' do
-    f.input :pizzas, as: :check_boxes, collection: Pizza.all, :member_label => :name
-  end
-  f.actions
-end
 end
