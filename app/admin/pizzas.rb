@@ -12,10 +12,30 @@ ActiveAdmin.register Pizza do
 #   permitted
 # end
 
-permit_params :name, :size, :price
+permit_params :name,
+              :size,
+              :price,
+              topping_ids: []
+
+form do |f|
+  f.inputs 'Pizza Details' do
+    f.input :name
+    f.input :size
+    f.input :price
+  end
+  f.inputs 'Toppings' do
+    f.input :toppings, as: :check_boxes, collection: Topping.all, :member_label => :name
+  end
+  f.actions
+end
 
 remove_filter :pizza_toppings
 remove_filter :pizza_deals
 remove_filter :pizza_orders
+
+
+# form do |f|
+#   f.input :toppings, as:check_boxes, :collection => Topping.all.map{ |top| [top.name, top.id] }
+# end
 
 end
