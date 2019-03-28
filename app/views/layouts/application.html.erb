@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <%= link_to 'Sign up', new_user_session_path %>
+    <%= link_to 'Sign in', user_session_path %>
+    <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
     <h2>Pizza Time</h2>
     		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
@@ -17,6 +20,7 @@
         <li><%= link_to 'Deals', deals_path %></li>
 			</ul>
 		</div>
+    <%= render 'layouts/alerts'%>
     <%= yield %>
   </body>
 </html>

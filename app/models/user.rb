@@ -1,7 +1,8 @@
 class User < ApplicationRecord
-  validates :name, :email, presence: true
 
-  # Validate email with constant built into URI in the standard ruby library.
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
-  has_many :orders
+
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 end
