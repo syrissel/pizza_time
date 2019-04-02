@@ -1,6 +1,5 @@
 class Pizza < ApplicationRecord
   validates :name, :size, :price, presence: true
-  validates :price, numericality: { only_integer: true }
 
   has_many :pizza_orders
   has_many :orders, :through => :pizza_orders
@@ -14,4 +13,6 @@ class Pizza < ApplicationRecord
   has_one :image
 
   accepts_nested_attributes_for :toppings
+
+  #default_scope { where(active: true) }
 end

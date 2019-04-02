@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_195538) do
+ActiveRecord::Schema.define(version: 2019_03_30_071140) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -60,6 +60,9 @@ ActiveRecord::Schema.define(version: 2019_03_28_195538) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "subtotal", precision: 12, scale: 3
+    t.decimal "tax", precision: 12, scale: 3
+    t.decimal "shipping", precision: 12, scale: 3
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -77,6 +80,9 @@ ActiveRecord::Schema.define(version: 2019_03_28_195538) do
     t.integer "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "unit_price", precision: 12, scale: 3
+    t.integer "quantity"
+    t.decimal "total_price", precision: 12, scale: 3
     t.index ["order_id"], name: "index_pizza_orders_on_order_id"
     t.index ["pizza_id"], name: "index_pizza_orders_on_pizza_id"
   end
@@ -93,7 +99,7 @@ ActiveRecord::Schema.define(version: 2019_03_28_195538) do
   create_table "pizzas", force: :cascade do |t|
     t.string "name"
     t.string "size"
-    t.integer "price"
+    t.decimal "price", precision: 12, scale: 3
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

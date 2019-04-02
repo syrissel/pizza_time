@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>PizzaTime</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Pizza Time</title>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <% if request.ssl? %>
+    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% else %>
+    <%= stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% end %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= link_to 'Sign up', new_user_session_path %>
-    <%= link_to 'Sign in', user_session_path %>
-    <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-    <h2>Pizza Time</h2>
-    		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-right">
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <h1><%= link_to "My Store", root_path %></h1>
+        <%= link_to 'Sign up', new_user_session_path %>
+        <%= link_to 'Sign in', user_session_path %>
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+        <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Pizza', pizzas_path %></li>
         <li><%= link_to 'Deals', deals_path %></li>
 			</ul>
-		</div>
+      </div>
+      <div class="col-xs-6 text-right">
+        <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+      </div>
+    </div>
+    <hr>
     <%= render 'layouts/alerts'%>
     <%= yield %>
-  </body>
+  </div>
+
+</body>
 </html>

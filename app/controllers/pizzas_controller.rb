@@ -1,6 +1,7 @@
 class PizzasController < ApplicationController
   def index
-    @pizzas = Pizza.order(:name)
+    @pizzas = Pizza.all
+    @pizza_order = current_order.pizza_orders.new
   end
 
   def show

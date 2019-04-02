@@ -1,0 +1,18 @@
+<% if !@pizza_order.nil? && @pizza_order.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+    <% @pizza_order.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<% if @pizza_orders.size == 0 %>
+  <p class="text-center">
+    There are no items in your shopping cart.  Please <%= link_to "go back", root_path %> and add some items to your cart.
+  </p>
+<% else %>
+  <% @pizza_orders.each do |pizza_order| %>
+    <%= render 'carts/cart_row', pizza: pizza_order.pizza, pizza_order: pizza_order, show_total: true %>
+  <% end %>
+<% end %>

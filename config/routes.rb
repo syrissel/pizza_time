@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  # get 'pizza_orders/create'
+  # get 'pizza_orders/update'
+  # get 'pizza_orders/destroy'
+  # get 'order_items/create'
+  # get 'order_items/update'
+  # get 'order_items/destroy'
+  # get 'carts/show'
   devise_for :users, controllers: {
     registrations: 'registrations'
   }
@@ -10,6 +17,9 @@ Rails.application.routes.draw do
   resources :pizzas, only: [:index, :show]
   resources :deals, only: [:index, :show]
   resources :users, only: [:index, :show]
+  resource :cart, only: [:show]
+  resources :pizza_orders, only: [:create, :update, :destroy]
+  root to: "pizzas#index"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -22,5 +32,5 @@ Rails.application.routes.draw do
 
   
 
-  root :controller => 'static', :action => :index
+  #root :controller => 'static', :action => :index
 end
