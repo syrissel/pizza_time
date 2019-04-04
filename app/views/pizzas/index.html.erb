@@ -1,5 +1,19 @@
+  <% form_tag pizzas_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <% end %>
 
+<div style="visibility: hidden"><%= paginate @pizzas %></div>
 <div class="container">
+
+
+
+  <h5>Sort by:</h5>
+
+  <%= select_tag(:option, 
+  options_for_select([['Newest', 1], ['Oldest', 2], ['Name', 3], ['Lowest Price', 4], ['Highest Price', 5]], selected: :option )) %>
   <div class="row">
     <h3 class="section-heading text-uppercase">Pizzas for Sale</h3>
   </div>
@@ -8,6 +22,17 @@
       <% @pizzas.each do |pizza| %>
         <%= render "product_row", pizza: pizza, pizza_order: @pizza_order %>
       <% end %>
+      
     </div>
   </div>
 </div>
+
+<div class="paginate-container">
+  <%= paginate @pizzas %>
+</div>
+
+
+
+
+
+

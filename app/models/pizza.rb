@@ -15,4 +15,6 @@ class Pizza < ApplicationRecord
   accepts_nested_attributes_for :toppings
 
   #default_scope { where(active: true) }
+
+  max_paginates_per 4
 end

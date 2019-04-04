@@ -28,6 +28,21 @@
     nav {
       background-color: #000000 !important;
     }
+
+    .pagination {
+      background-color: #FFFFFF !important;
+      margin: 0 auto;
+      display: inline-block;
+    }
+
+    .paginate-container {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    input.body {
+      width: 25%;
+    }
   </style>
 </head>
 <body id="page-top">
@@ -59,6 +74,9 @@
             <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
           </div>
         </ul>
+                <%= link_to 'Sign up', new_user_session_path %>
+        <%= link_to 'Sign in', user_session_path %>
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
       </div>
     </div>
   

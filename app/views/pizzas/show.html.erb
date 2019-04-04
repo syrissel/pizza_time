@@ -1,4 +1,17 @@
-<h1><%=@pizza.name%></h1>
-<p><%= image_tag @pizza.image.path.url(:thumbnail) %></p>
-<p>Price: <%=number_to_currency((@pizza.price / 100), precision: 2) %></p>
-<p>Size: <%=@pizza.size %></p>
+
+<div class="container">
+  <h1><%=@pizza.name%></h1>
+  <p><%= image_tag @pizza.image.path.url(:thumbnail) %></p>
+  <p>Price: <%=@pizza.price%></p>
+  <p>Size: <%=@pizza.size %></p>
+
+  
+  <div class="row">
+  <h5>Toppings:</h5>
+  <div class="list-inline quicklinks">
+  <% @pizza.toppings.each do |topping| %>
+    <li class="list-inline-item"><%= topping.name %></li>
+  <% end %>
+  </div>
+  </div>
+</div>
