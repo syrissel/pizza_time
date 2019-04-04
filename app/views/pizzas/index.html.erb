@@ -1,11 +1,13 @@
-<h1>Current Specialty Pizzas</h1>
 
-<h3 class="text-center">Pizzas for Sale</h3>
-
-<div class="row">
-  <div class="col-xs-6 col-xs-offset-3">
-    <% @pizzas.each do |pizza| %>
-      <%= render "product_row", pizza: pizza, pizza_order: @pizza_order %>
-    <% end %>
+<div class="container">
+  <div class="row">
+    <h3 class="section-heading text-uppercase">Pizzas for Sale</h3>
+  </div>
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <% @pizzas.each do |pizza| %>
+        <%= render "product_row", pizza: pizza, pizza_order: @pizza_order %>
+      <% end %>
+    </div>
   </div>
 </div>

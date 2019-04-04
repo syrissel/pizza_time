@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resource :cart, only: [:show]
   resources :pizza_orders, only: [:create, :update, :destroy]
-  root to: "pizzas#index"
+  # root to: "pizzas#index"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -32,5 +32,5 @@ Rails.application.routes.draw do
 
   
 
-  #root :controller => 'static', :action => :index
+  root :controller => 'static', :action => :index
 end
