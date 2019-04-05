@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'search/index'
   # get 'pizza_orders/create'
   # get 'pizza_orders/update'
   # get 'pizza_orders/destroy'
