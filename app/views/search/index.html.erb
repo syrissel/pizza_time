@@ -1,6 +1,6 @@
 
 <ul>
   <% @pizzas.each do |pizza| %>
-    <li><%= pizza.name %></li>
+    <li><%= link_to pizza.name, pizza %></li>
   <% end %>
 </ul>

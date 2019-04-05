@@ -6,4 +6,9 @@ class ToppingControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get show" do
+    get topping_show_url
+    assert_response :success
+  end
+
 end

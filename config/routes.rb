@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'topping/index'
-  get 'contact/index'
+  # get 'topping/index'
+  # get 'topping/show'
+  # get 'topping/index'
+  # get 'topping/show'
+  # get 'contact/index'
   #get 'about/index'
   get 'search/index'
   # get 'pizza_orders/create'
