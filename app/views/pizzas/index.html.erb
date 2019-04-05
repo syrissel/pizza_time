@@ -1,10 +1,3 @@
-  <% form_tag pizzas_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-  <% end %>
-
 <div style="visibility: hidden"><%= paginate @pizzas %></div>
 <div class="container">
 
@@ -17,8 +10,14 @@
   </div>
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3">
-      <% @pizzas.each do |pizza| %>
-        <%= render "product_row", pizza: pizza, pizza_order: @pizza_order %>
+      <% if @query %>
+        <% @pizza_search.each do |pizza| %>
+          <%= render "product_row", pizza: pizza, pizza_order: @pizza_order %>
+        <% end %>
+      <% else %>
+        <% @pizzas.each do |pizza| %>
+          <%= render "product_row", pizza: pizza, pizza_order: @pizza_order %>
+        <% end %>
       <% end %>
       
     </div>
