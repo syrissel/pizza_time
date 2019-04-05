@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'topping/index'
   get 'contact/index'
   #get 'about/index'
   get 'search/index'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   get 'pizzas/index'
   get 'pizzas/show'
   resources :about, only: [:index]
+  resources :toppings, only: [:index, :show]
   resources :contact, only: [:index]
   resources :pizzas, only: [:index, :show]
   resources :deals, only: [:index, :show]
