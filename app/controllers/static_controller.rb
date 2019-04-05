@@ -3,5 +3,4 @@ class StaticController < ApplicationController
     @pizzas = Pizza.all
   end
 
-  
 end

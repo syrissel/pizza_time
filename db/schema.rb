@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_30_071140) do
+ActiveRecord::Schema.define(version: 2019_04_05_180947) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(version: 2019_03_30_071140) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "pages", force: :cascade do |t|
+    t.string "about_details"
+    t.string "contact_details"
+    t.string "contact_phone"
+    t.string "contact_address"
+    t.string "contact_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pizza_deals", force: :cascade do |t|
     t.integer "pizza_id"
     t.integer "deal_id"
@@ -104,6 +114,15 @@ ActiveRecord::Schema.define(version: 2019_03_30_071140) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.decimal "pst", precision: 12, scale: 3
+    t.decimal "gst", precision: 12, scale: 3
+    t.decimal "hst", precision: 12, scale: 3
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "toppings", force: :cascade do |t|
     t.string "name"
     t.string "allergy_info"
@@ -120,7 +139,9 @@ ActiveRecord::Schema.define(version: 2019_03_30_071140) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.integer "province_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["province_id"], name: "index_users_on_province_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'contact/index'
+  #get 'about/index'
   get 'search/index'
   # get 'pizza_orders/create'
   # get 'pizza_orders/update'
@@ -15,6 +17,8 @@ Rails.application.routes.draw do
   get 'deals/show'
   get 'pizzas/index'
   get 'pizzas/show'
+  resources :about, only: [:index]
+  resources :contact, only: [:index]
   resources :pizzas, only: [:index, :show]
   resources :deals, only: [:index, :show]
   resources :users, only: [:index, :show]
