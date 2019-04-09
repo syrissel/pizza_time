@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resource :cart, only: [:show]
   resources :pizza_orders, only: [:create, :update, :destroy]
+  resources :charges
   # root to: "pizzas#index"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
