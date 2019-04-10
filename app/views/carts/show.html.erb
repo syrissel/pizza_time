@@ -2,13 +2,19 @@
   <%= render "shopping_cart" %>
 </div>
 
+
   <%= form_tag charges_path do %>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
     <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="pk_test_rb3Fu2OdN6pdOM5x9nimYSsK00MYGOdfkh"
     data-amount="<%= (current_order.subtotal * 100).to_i %>"
-    data-name="Demo Site"
-    data-description="Example charge"
+    data-name="Pizza Time"
+    data-description="Checkout"
     data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
     data-locale="auto"
     data-currency="cad">

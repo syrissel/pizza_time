@@ -22,6 +22,8 @@ class ChargesController < ApplicationController
       currency: 'usd',
     })
 
+    order = Order.find(session[:order_id])
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
