@@ -1,4 +1,10 @@
 
 <div class="container">
 <h2>Thank you, <%= current_user.username %>, you paid <strong><%= number_to_currency(current_order.total) %></strong>!</h2>
+<h3>Taxes: <%= number_to_currency(current_order.tax) %></h3>
+  <h3>Shipping to: </h3>
+  <ul>
+    <li style="list-style: none"><%= current_user.username %></li>
+    <li style="list-style: none"><%= current_user.address %>, <%= current_user.province.name %></li>
+  </ul>
 </div>
