@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
       else
         province = Province.find(current_user.province_id)
         tax = province.gst + province.pst + province.hst
-        Order.create!(user_id: current_user.id, tax: tax)
+        Order.create!(user_id: current_user.id, tax: tax, order_status_id: 1)
       end
     end
   end
