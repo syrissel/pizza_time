@@ -9,7 +9,9 @@ class ApplicationController < ActionController::Base
       if !current_user
         Order.new
       else
-        Order.create!(user_id: current_user.id)
+        province = Province.find(current_user.province_id)
+        tax = province.gst + province.pst + province.hst
+        Order.create!(user_id: current_user.id, tax: tax)
       end
     end
   end
