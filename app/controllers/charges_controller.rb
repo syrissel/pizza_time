@@ -24,8 +24,14 @@ class ChargesController < ApplicationController
 
     current_user.stripe_user_id = customer.id.to_s
     current_user.save
-    current_order.stripe_charge_id = charge.id.to_s
-    current_order.save
+
+    # Not updating stripe_charge_id column
+    # current_order.stripe_charge_id = charge.id.to_s
+    # current_order.order_status_id = 2;
+    # current_order.save
+
+    Order.update(current_order.id, :stripe_charge_id => charge.id.to_s)
+    Order.update(current_order.id, :order_status_id => 2)
     
 
   rescue Stripe::CardError => e

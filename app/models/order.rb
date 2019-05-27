@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   has_many :users
   has_many :pizza_orders
+  belongs_to :order_status
   has_many :pizzas, :through => :pizza_orders
   before_save :update_subtotal
   before_save :update_total

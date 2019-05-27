@@ -1,7 +1,13 @@
-<h1>Deals</h1>
+<h1>Orders</h1>
 
+<% if current_user %>
 <ul>
-<%@deals.each do |d|%>
-  <li><%= link_to d.name, d %></li>
+
+<%@orders.each do |d|%>
+<% if d.subtotal != 0 %>
+  <li><%= d.subtotal %>, <%= d.order_status.name %></li>
+  <% end%>
 <%end%>
 </ul>
+
+<% end%>
