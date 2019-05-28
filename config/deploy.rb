@@ -90,3 +90,6 @@ end
 # For help in making your deploy script, see the Mina documentation:
 #
 #  - https://github.com/mina-deploy/mina/tree/master/docs
+on :launch do
+  command "sudo service #{fetch(:user)} restart"
+end
